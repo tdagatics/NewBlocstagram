@@ -1,13 +1,14 @@
 //
-//  BLCImagesTableViewController.h
+//  BLCMedia.m
 //  NewBlocstagram
 //
 //  Created by Anthony Dagati on 9/29/14.
 //  Copyright (c) 2014 Black Rail Capital. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BLCMedia.h"
+#import "BLCUser.h"
 
-@interface BLCImagesTableViewController : UITableViewController
+@implementation BLCMedia
 
 @end
