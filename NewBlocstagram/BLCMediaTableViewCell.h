@@ -17,4 +17,6 @@
 @property (nonatomic, strong) UILabel *usernameAndCaptionLabel;
 @property (nonatomic, strong) UILabel *commentLabel;
 
++(CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width;
+
 @end
