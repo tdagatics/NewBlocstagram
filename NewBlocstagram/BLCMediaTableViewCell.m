@@ -20,6 +20,23 @@ static NSParagraphStyle *paragraphStyle;
 
 @implementation BLCMediaTableViewCell
 
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // Initialization code
+        self.mediaImageView = [[UIImageView alloc] init];
+        self.usernameAndCaptionLabel = [[UILabel alloc] init];
+        self.commentLabel = [[UILabel alloc] init];
+        self.commentLabel.numberOfLines = 0;
+        
+        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel]) {
+            [self.contentView addSubview:view];
+        }
+    }
+    return self;
+}
+
 +(void) load {
     lightFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:11];
     boldFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
@@ -36,22 +53,23 @@ static NSParagraphStyle *paragraphStyle;
     paragraphStyle = mutableParagraphStyle;
     
 }
--(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-    // Initialization code
-        self.mediaImageView = [[UIImageView alloc] init];
-        self.usernameAndCaptionLabel = [[UILabel alloc] init];
-        self.commentLabel = [[UILabel alloc] init];
-        self.commentLabel.numberOfLines = 0;
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
     
-        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel]) {
-        [self.contentView addSubview:view];
-        }
-    }
-return self;
+    CGFloat imageHeight = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    self.mediaImageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), imageHeight);
+    
+    CGSize sizeOfUserNameAndCaptionLabel = [self sizeOfString:self.usernameAndCaptionLabel.attributedText];
+    self.usernameAndCaptionLabel.frame = CGRectMake(0, CGRectGetMaxY(self.mediaImageView.frame), CGRectGetWidth(self.contentView.bounds), sizeOfUserNameAndCaptionLabel.height);
+    
+    CGSize sizeOfCommentLabel = [self sizeOfString:self.usernameAndCaptionLabel.attributedText];
+    self.commentLabel.frame = CGRectMake(0, CGRectGetMaxY(self.usernameAndCaptionLabel.frame), CGRectGetWidth(self.bounds), sizeOfCommentLabel.height);self.commentLabel.frame = CGRectMake(0, CGRectGetMaxY(self.usernameAndCaptionLabel.frame), CGRectGetWidth(self.bounds), sizeOfCommentLabel.height);
+    // Hide the line between cells
+    self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
+    
 }
+
 
 -(NSAttributedString *)userNameAndCaptionString {
     CGFloat usernameFontSize = 15;
@@ -97,7 +115,12 @@ return self;
     return sizeRect.size;
 }
 
-
+-(void) setMediaItem:(BLCMedia *)mediaItem {
+    _mediaItem = mediaItem;
+    self.mediaImageView.image = _mediaItem.image;
+    self.usernameAndCaptionLabel.attributedText = [self userNameAndCaptionString];
+    self.commentLabel.attributedText = [self commentString];
+}
 
 
 
