@@ -19,6 +19,17 @@
 		436E70F119DA578F00D5C1C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436E70D919DA578F00D5C1C1 /* UIKit.framework */; };
 		436E70F919DA578F00D5C1C1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 436E70F719DA578F00D5C1C1 /* InfoPlist.strings */; };
 		436E70FB19DA578F00D5C1C1 /* NewBlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E70FA19DA578F00D5C1C1 /* NewBlocstagramTests.m */; };
+		436E710F19DA583600D5C1C1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710519DA583600D5C1C1 /* 1.jpg */; };
+		436E711019DA583600D5C1C1 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710619DA583600D5C1C1 /* 2.jpg */; };
+		436E711119DA583600D5C1C1 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710719DA583600D5C1C1 /* 3.jpg */; };
+		436E711219DA583600D5C1C1 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710819DA583600D5C1C1 /* 4.jpg */; };
+		436E711319DA583600D5C1C1 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710919DA583600D5C1C1 /* 5.jpg */; };
+		436E711419DA583600D5C1C1 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710A19DA583600D5C1C1 /* 6.jpg */; };
+		436E711519DA583600D5C1C1 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710B19DA583600D5C1C1 /* 7.jpg */; };
+		436E711619DA583600D5C1C1 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710C19DA583600D5C1C1 /* 8.jpg */; };
+		436E711719DA583600D5C1C1 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710D19DA583600D5C1C1 /* 9.jpg */; };
+		436E711819DA583600D5C1C1 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710E19DA583600D5C1C1 /* 10.jpg */; };
+		436E711B19DA587900D5C1C1 /* BLCImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E711A19DA587900D5C1C1 /* BLCImagesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +59,18 @@
 		436E70F619DA578F00D5C1C1 /* NewBlocstagramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NewBlocstagramTests-Info.plist"; sourceTree = "<group>"; };
 		436E70F819DA578F00D5C1C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		436E70FA19DA578F00D5C1C1 /* NewBlocstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewBlocstagramTests.m; sourceTree = "<group>"; };
+		436E710519DA583600D5C1C1 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		436E710619DA583600D5C1C1 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		436E710719DA583600D5C1C1 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		436E710819DA583600D5C1C1 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		436E710919DA583600D5C1C1 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		436E710A19DA583600D5C1C1 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		436E710B19DA583600D5C1C1 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+		436E710C19DA583600D5C1C1 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		436E710D19DA583600D5C1C1 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		436E710E19DA583600D5C1C1 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		436E711919DA587900D5C1C1 /* BLCImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCImagesTableViewController.h; sourceTree = "<group>"; };
+		436E711A19DA587900D5C1C1 /* BLCImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCImagesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +130,11 @@
 		436E70DB19DA578F00D5C1C1 /* NewBlocstagram */ = {
 			isa = PBXGroup;
 			children = (
+				436E710419DA57EF00D5C1C1 /* Images */,
 				436E70E419DA578F00D5C1C1 /* BLCAppDelegate.h */,
 				436E70E519DA578F00D5C1C1 /* BLCAppDelegate.m */,
+				436E711919DA587900D5C1C1 /* BLCImagesTableViewController.h */,
+				436E711A19DA587900D5C1C1 /* BLCImagesTableViewController.m */,
 				436E70E719DA578F00D5C1C1 /* Images.xcassets */,
 				436E70DC19DA578F00D5C1C1 /* Supporting Files */,
 			);
@@ -142,6 +168,23 @@
 				436E70F719DA578F00D5C1C1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		436E710419DA57EF00D5C1C1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				436E710519DA583600D5C1C1 /* 1.jpg */,
+				436E710619DA583600D5C1C1 /* 2.jpg */,
+				436E710719DA583600D5C1C1 /* 3.jpg */,
+				436E710819DA583600D5C1C1 /* 4.jpg */,
+				436E710919DA583600D5C1C1 /* 5.jpg */,
+				436E710A19DA583600D5C1C1 /* 6.jpg */,
+				436E710B19DA583600D5C1C1 /* 7.jpg */,
+				436E710C19DA583600D5C1C1 /* 8.jpg */,
+				436E710D19DA583600D5C1C1 /* 9.jpg */,
+				436E710E19DA583600D5C1C1 /* 10.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +263,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				436E711719DA583600D5C1C1 /* 9.jpg in Resources */,
+				436E711619DA583600D5C1C1 /* 8.jpg in Resources */,
+				436E711219DA583600D5C1C1 /* 4.jpg in Resources */,
+				436E711119DA583600D5C1C1 /* 3.jpg in Resources */,
+				436E711419DA583600D5C1C1 /* 6.jpg in Resources */,
+				436E710F19DA583600D5C1C1 /* 1.jpg in Resources */,
 				436E70E019DA578F00D5C1C1 /* InfoPlist.strings in Resources */,
+				436E711319DA583600D5C1C1 /* 5.jpg in Resources */,
+				436E711519DA583600D5C1C1 /* 7.jpg in Resources */,
+				436E711019DA583600D5C1C1 /* 2.jpg in Resources */,
+				436E711819DA583600D5C1C1 /* 10.jpg in Resources */,
 				436E70E819DA578F00D5C1C1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +295,7 @@
 			files = (
 				436E70E619DA578F00D5C1C1 /* BLCAppDelegate.m in Sources */,
 				436E70E219DA578F00D5C1C1 /* main.m in Sources */,
+				436E711B19DA587900D5C1C1 /* BLCImagesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
