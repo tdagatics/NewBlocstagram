@@ -84,4 +84,19 @@
     return (CGRectGetWidth(self.view.frame) / image.size.width) * image.size.height;
 }
 
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    // Delete the row from the data source
+    [self.images removeObjectAtIndex:indexPath.row];
+    //reload Table view
+    [tableView reloadData];
+    }
+
+}
+
 @end
