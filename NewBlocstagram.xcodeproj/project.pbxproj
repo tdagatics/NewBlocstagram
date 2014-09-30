@@ -34,6 +34,7 @@
 		4392005819DA6137004B5E46 /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005719DA6137004B5E46 /* BLCMedia.m */; };
 		4392005B19DA6253004B5E46 /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005A19DA6253004B5E46 /* BLCComment.m */; };
 		4392005E19DA635F004B5E46 /* BLCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005D19DA635F004B5E46 /* BLCDataSource.m */; };
+		4396B9BB19DA6F9800602696 /* BLCMediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4396B9BA19DA6F9800602696 /* BLCMediaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		4392005A19DA6253004B5E46 /* BLCComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCComment.m; sourceTree = "<group>"; };
 		4392005C19DA635F004B5E46 /* BLCDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCDataSource.h; sourceTree = "<group>"; };
 		4392005D19DA635F004B5E46 /* BLCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCDataSource.m; sourceTree = "<group>"; };
+		4396B9B919DA6F9800602696 /* BLCMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaTableViewCell.h; sourceTree = "<group>"; };
+		4396B9BA19DA6F9800602696 /* BLCMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				4392005D19DA635F004B5E46 /* BLCDataSource.m */,
 				436E70E719DA578F00D5C1C1 /* Images.xcassets */,
 				436E70DC19DA578F00D5C1C1 /* Supporting Files */,
+				4396B9B919DA6F9800602696 /* BLCMediaTableViewCell.h */,
+				4396B9BA19DA6F9800602696 /* BLCMediaTableViewCell.m */,
 			);
 			path = NewBlocstagram;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				436E711B19DA587900D5C1C1 /* BLCImagesTableViewController.m in Sources */,
 				4392005819DA6137004B5E46 /* BLCMedia.m in Sources */,
 				4392005B19DA6253004B5E46 /* BLCComment.m in Sources */,
+				4396B9BB19DA6F9800602696 /* BLCMediaTableViewCell.m in Sources */,
 				4392005E19DA635F004B5E46 /* BLCDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
