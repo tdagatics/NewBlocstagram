@@ -53,7 +53,7 @@
  [cell.contentView addSubview:imageView];
  }
  
-BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+BLCMedia *item = [self items][indexPath.row];
 imageView.image = item.image;
 
  
@@ -73,11 +73,11 @@ imageView.image = item.image;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [BLCDataSource sharedInstance].mediaItems.count;
+    return [self items].count;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    BLCMedia *item = [self items][indexPath.row];
     UIImage *image = item.image;return (CGRectGetWidth(self.view.frame) / image.size.width) * image.size.height;
 }
 
@@ -89,12 +89,17 @@ imageView.image = item.image;
 
     if (editingStyle == UITableViewCellEditingStyleDelete) {
     // Delete the row from the data source
-        NSMutableArray *array = [BLCDataSource sharedInstance].mediaItems;
+        NSMutableArray *array = [self items];
         [array removeObjectAtIndex:indexPath.row];
     //reload Table view
     [tableView reloadData];
     }
 
+}
+
+-(NSMutableArray *)items {
+    NSMutableArray *items = [BLCDataSource sharedInstance].mediaItems;
+    return items;
 }
 
 @end
