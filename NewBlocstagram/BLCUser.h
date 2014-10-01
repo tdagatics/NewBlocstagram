@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface BLCUser : NSObject
 
 @property (nonatomic, strong) NSString *idNumber;
