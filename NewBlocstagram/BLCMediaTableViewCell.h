@@ -10,6 +10,7 @@
 
 @class BLCMedia;
 
+
 @interface BLCMediaTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) BLCMedia *mediaItem;
