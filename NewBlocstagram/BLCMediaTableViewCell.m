@@ -3,7 +3,7 @@
 //  NewBlocstagram
 //
 //  Created by Anthony Dagati on 9/29/14.
-//  Copyright (c) 2014 Black Rail Capital. All rights reserved.
+//  Copyright (c) 2014 Black Rail Capital. All rights reserved. Revised.
 //
 
 #import "BLCMediaTableViewCell.h"
