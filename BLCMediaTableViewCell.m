@@ -2,18 +2,14 @@
 //  BLCMediaTableViewCell.m
 //  NewBlocstagram
 //
-//  Created by Anthony Dagati on 9/29/14.
-//  Copyright (c) 2014 Black Rail Capital. All rights reserved. Revised.
+//  Created by Anthony Dagati on 10/1/14.
+//  Copyright (c) 2014 Black Rail Capital. All rights reserved.
 //
-
-@interface
 
 #import "BLCMediaTableViewCell.h"
 #import "BLCMedia.h"
 #import "BLCUser.h"
 #import "BLCComment.h"
-
-
 
 static UIFont *lightFont;
 static UIFont *boldFont;
@@ -24,7 +20,6 @@ static NSParagraphStyle *paragraphStyle;
 
 
 @implementation BLCMediaTableViewCell
-
 
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -59,8 +54,8 @@ static NSParagraphStyle *paragraphStyle;
         self.commentLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_commentLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:100];
         
         [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint]];
-         
-                                         
+        
+        
     }
     return self;
 }
@@ -92,7 +87,7 @@ static NSParagraphStyle *paragraphStyle;
     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height
     + 20;
     self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
-
+    
     // Hide the line between cells
     self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
     
@@ -125,7 +120,7 @@ static NSParagraphStyle *paragraphStyle;
         
         // Make an attributed string, with the "username" bold
         
-    NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName: paragraphStyle}];
+        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName: paragraphStyle}];
         
         NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
         
@@ -158,57 +153,5 @@ static NSParagraphStyle *paragraphStyle;
     return CGRectGetMaxY(layoutCell.commentLabel.frame);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @end
+
