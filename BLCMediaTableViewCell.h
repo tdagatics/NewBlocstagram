@@ -19,6 +19,9 @@
 @property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *imageWidthConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelWidthConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *commentLabelWidthConstraint;
 
 +(CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width;
 
