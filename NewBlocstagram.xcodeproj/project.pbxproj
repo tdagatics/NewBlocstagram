@@ -48,8 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		43474AEF19DCAE0F006E546D /* BLCMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaTableViewCell.h; sourceTree = "<group>"; };
-		43474AF019DCAE0F006E546D /* BLCMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaTableViewCell.m; sourceTree = "<group>"; };
+		43474AEF19DCAE0F006E546D /* BLCMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCMediaTableViewCell.h; path = ../BLCMediaTableViewCell.h; sourceTree = "<group>"; };
+		43474AF019DCAE0F006E546D /* BLCMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCMediaTableViewCell.m; path = ../BLCMediaTableViewCell.m; sourceTree = "<group>"; };
 		436E70D219DA578F00D5C1C1 /* NewBlocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewBlocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		436E70D519DA578F00D5C1C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		436E70D719DA578F00D5C1C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,8 +115,6 @@
 		436E70C919DA578F00D5C1C1 = {
 			isa = PBXGroup;
 			children = (
-				43474AEF19DCAE0F006E546D /* BLCMediaTableViewCell.h */,
-				43474AF019DCAE0F006E546D /* BLCMediaTableViewCell.m */,
 				436E70DB19DA578F00D5C1C1 /* NewBlocstagram */,
 				436E70F419DA578F00D5C1C1 /* NewBlocstagramTests */,
 				436E70D419DA578F00D5C1C1 /* Frameworks */,
@@ -147,6 +145,8 @@
 		436E70DB19DA578F00D5C1C1 /* NewBlocstagram */ = {
 			isa = PBXGroup;
 			children = (
+				43474AEF19DCAE0F006E546D /* BLCMediaTableViewCell.h */,
+				43474AF019DCAE0F006E546D /* BLCMediaTableViewCell.m */,
 				4392005319DA60D8004B5E46 /* BLCUser.h */,
 				4392005419DA60D8004B5E46 /* BLCUser.m */,
 				436E710419DA57EF00D5C1C1 /* Images */,
