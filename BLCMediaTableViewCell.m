@@ -74,6 +74,7 @@ static NSParagraphStyle *paragraphStyle;
                                                                         multiplier:1
                                                                           constant:100];
         
+        
         [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint]];
         
     }
