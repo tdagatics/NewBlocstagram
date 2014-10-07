@@ -146,4 +146,26 @@
     [mutableArrayWithKVO removeObject:item];
 }
 
+#pragma mark Implementation of asynchronous completion handler method
+
+-(void) requestNewItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler {
+    if (self.isRefreshing == NO) {
+        self.isRefreshing = YES;
+        BLCMedia *media = [[BLCMedia alloc] init];
+        media.user = [self randomUser];
+        media.image = [UIImage imageNamed:@"10.jpg"];
+        media.caption = [self randomStringOfLength:50];
+        
+        NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+        [mutableArrayWithKVO insertObject:media atIndex:0];
+        
+        self.isRefreshing = NO;
+        
+        if (completionHandler ) {
+            completionHandler(nil);
+        }
+    }
+}
+
+
 @end
