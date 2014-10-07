@@ -128,4 +128,22 @@
 -(NSArray *)mediaItemsAtIndexes:(NSIndexSet *)indexes {
     return [self.mediaItems objectsAtIndexes:indexes];
 }
+
+-(void) insertObject:(BLCMedia *)object inMediaItemsAtIndex:(NSUInteger)index {
+    [_mediaItems insertObject:object atIndex:index];
+}
+
+-(void) removeObjectFromMediaItemsAtIndex:(NSUInteger)index {
+    [_mediaItems removeObjectAtIndex:index];
+}
+
+-(void) replaceObjectInMediaItemsAtIndex:(NSUInteger)index withObject:(id)object {
+    [_mediaItems replaceObjectAtIndex:index withObject:object];
+}
+
+-(void) deleteMediaItem:(id)item {
+    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+    [mutableArrayWithKVO removeObject:item];
+}
+
 @end
