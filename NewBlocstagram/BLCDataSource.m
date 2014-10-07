@@ -167,5 +167,23 @@
     }
 }
 
+-(void) requestOldItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler {
+    if (self.isRefreshing == NO) {
+        self.isRefreshing = YES;
+        BLCMedia *media = [[BLCMedia alloc] init];
+        media.user = [self randomUser];
+        media.image = [UIImage imageNamed:@"1.jpg"];
+        media.caption = [self randomStringOfLength:50];
+        
+        NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+        [mutableArrayWithKVO addObject:media];
+        
+        self.isRefreshing = NO;
+        
+        if (completionHandler ) {
+            completionHandler(nil);
+        }
+    }
+}
 
 @end

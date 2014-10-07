@@ -140,6 +140,21 @@
     }];
 }
 
+-(void) infiniteScrollIfNecessary {
+    NSIndexPath *bottomIndexPath = [[self.tableView indexPathsForVisibleRows] lastObject];
+    
+    if (bottomIndexPath && bottomIndexPath.row == [BLCDataSource sharedInstance].mediaItems.count -1) {
+    // The very last cell is on the screen
+    [[BLCDataSource sharedInstance] requestOldItemsWithCompletionHandler:0];
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self infiniteScrollIfNecessary];
+}
+
 -(void) dealloc
 {
     [[BLCDataSource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
