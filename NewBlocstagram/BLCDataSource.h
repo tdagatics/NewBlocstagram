@@ -18,6 +18,8 @@ typedef void (^BLCNewItemCompletionBlock)(NSError *error);
 @property (nonatomic, strong, readonly) NSMutableArray *mediaItems;
 @property (nonatomic, assign) BOOL isRefreshing;
 @property (nonatomic, assign) BOOL isLoadingOlderItems;
+@property (nonatomic, strong, readonly) NSString *accessToken;
+
 
 
 - (void) deleteMediaItem:(BLCMedia *)item;
