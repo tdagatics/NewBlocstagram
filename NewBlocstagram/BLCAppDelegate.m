@@ -26,7 +26,6 @@
     BLCLoginViewController *loginVC = [[BLCLoginViewController alloc] init]; // Initialize a login view controller
     // At launch, show the login controller
     [navVC setViewControllers:@[loginVC] animated:YES];
-    [navVC setTitle:@"Login"];
     
     
     // Detect when the notification posts

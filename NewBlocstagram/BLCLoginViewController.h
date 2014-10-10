@@ -12,4 +12,6 @@
 
 extern NSString *const BLCLoginViewControllerDidGetAccessTokenNotification;
 
+@property (nonatomic, strong) UIButton *homeButton;
+
 @end
