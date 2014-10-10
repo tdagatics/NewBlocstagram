@@ -50,8 +50,7 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     self.title = @"Login";
     self.homeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [self.homeButton setTitle:@"Home" forState:UIControlStateNormal];
-    CGFloat xpadding = 15;
-    self.homeButton.frame = CGRectMake(xpadding,75,50,25);
+    //self.homeButton.frame = CGRectMake(20, 75, 50, 25);
     [self.homeButton addTarget:self action:@selector(homePressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.homeButton];
 }
@@ -59,6 +58,7 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
 -(void)homePressed:(UIButton *) sender {
     BLCLoginViewController *loginVC = [[BLCLoginViewController alloc] init];
     NSLog(@"Home button pressed.");
+    self.title = @"Back";
     [self.navigationController pushViewController:loginVC animated:YES];
 }
 
@@ -72,10 +72,14 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
+    
+    
+ // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+ */
+
+
 
 #pragma mark - dealloc method
 
