@@ -35,6 +35,7 @@
 		4392005819DA6137004B5E46 /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005719DA6137004B5E46 /* BLCMedia.m */; };
 		4392005B19DA6253004B5E46 /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005A19DA6253004B5E46 /* BLCComment.m */; };
 		4392005E19DA635F004B5E46 /* BLCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005D19DA635F004B5E46 /* BLCDataSource.m */; };
+		43B598D319E83C52002D35CE /* BLCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B598D219E83C52002D35CE /* BLCLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		4392005A19DA6253004B5E46 /* BLCComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCComment.m; sourceTree = "<group>"; };
 		4392005C19DA635F004B5E46 /* BLCDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCDataSource.h; sourceTree = "<group>"; };
 		4392005D19DA635F004B5E46 /* BLCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCDataSource.m; sourceTree = "<group>"; };
+		43B598D119E83C52002D35CE /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
+		43B598D219E83C52002D35CE /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,8 @@
 				4392005A19DA6253004B5E46 /* BLCComment.m */,
 				4392005C19DA635F004B5E46 /* BLCDataSource.h */,
 				4392005D19DA635F004B5E46 /* BLCDataSource.m */,
+				43B598D119E83C52002D35CE /* BLCLoginViewController.h */,
+				43B598D219E83C52002D35CE /* BLCLoginViewController.m */,
 				436E70E719DA578F00D5C1C1 /* Images.xcassets */,
 				436E70DC19DA578F00D5C1C1 /* Supporting Files */,
 			);
@@ -326,6 +331,7 @@
 				4392005B19DA6253004B5E46 /* BLCComment.m in Sources */,
 				43474AF119DCAE0F006E546D /* BLCMediaTableViewCell.m in Sources */,
 				4392005E19DA635F004B5E46 /* BLCDataSource.m in Sources */,
+				43B598D319E83C52002D35CE /* BLCLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

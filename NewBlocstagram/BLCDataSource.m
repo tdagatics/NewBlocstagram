@@ -186,4 +186,7 @@
     }
 }
 
++ (NSString *) instagramClientID {
+    return @"7fe512d041ca4bce932c4e248a825188";
+}
 @end
