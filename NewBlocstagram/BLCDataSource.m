@@ -112,7 +112,7 @@
 }
 
 + (NSString *) instagramClientID {
-    return @"7fe512d041ca4bce932c4e248a825188";
+    return @"4d774a952e534244a4f116a638efcdca";
 }
 
 #pragma mark - Methods for Instagram Image Feed
