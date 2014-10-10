@@ -12,7 +12,9 @@
 	<dict>
 		<key>21AFBEF8-BB03-4920-A65B-A10CD60D425D</key>
 		<string>https://github.com/tdagatics/newblocstagram.git</string>
-		<key>2A4011DA-86EB-4F0F-AD07-5D27CFB1D684</key>
+		<key>5450119CCA2DD394E9078F73A3071326A1F877FC</key>
+		<string>https://github.com/tdagatics/ios-exercises.git</string>
+		<key>6411A1BBE248F5AF38C1594CE54CB242635B1BBC</key>
 		<string>https://github.com/tdagatics/newblocstagram.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
@@ -21,17 +23,27 @@
 	<dict>
 		<key>21AFBEF8-BB03-4920-A65B-A10CD60D425D</key>
 		<string>../../../newblocstagram</string>
-		<key>2A4011DA-86EB-4F0F-AD07-5D27CFB1D684</key>
+		<key>5450119CCA2DD394E9078F73A3071326A1F877FC</key>
+		<string>../../..</string>
+		<key>6411A1BBE248F5AF38C1594CE54CB242635B1BBC</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/tdagatics/newblocstagram.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2A4011DA-86EB-4F0F-AD07-5D27CFB1D684</string>
+	<string>6411A1BBE248F5AF38C1594CE54CB242635B1BBC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5450119CCA2DD394E9078F73A3071326A1F877FC</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
@@ -44,7 +56,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2A4011DA-86EB-4F0F-AD07-5D27CFB1D684</string>
+			<string>6411A1BBE248F5AF38C1594CE54CB242635B1BBC</string>
 			<key>IDESourceControlWCCName</key>
 			<string>NewBlocstagram</string>
 		</dict>

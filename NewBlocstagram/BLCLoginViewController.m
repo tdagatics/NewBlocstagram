@@ -36,6 +36,9 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
         [self.webView loadRequest:request];
     }
     
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 20, 20)];
+    [self.webView addSubview:backButton];
+    
 }
 
 - (void)loadView {
