@@ -33,7 +33,6 @@
         // When the notification posts, switch the root view controller from the login controller to the table controller
         BLCImagesTableViewController *imagesVC = [[BLCImagesTableViewController alloc] init];
         [navVC setViewControllers:@[imagesVC] animated:YES];
-        [navVC setTitle:@"Login"];
         
 
     }];

@@ -45,12 +45,10 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     
     self.webView = webView;
     self.view = webView;
-    
-    
     self.title = @"Login";
     self.homeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [self.homeButton setTitle:@"Home" forState:UIControlStateNormal];
-    //self.homeButton.frame = CGRectMake(20, 75, 50, 25);
+    self.homeButton.frame = CGRectMake(260, 535, 50, 25);
     [self.homeButton addTarget:self action:@selector(homePressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.homeButton];
 }
@@ -58,8 +56,8 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
 -(void)homePressed:(UIButton *) sender {
     BLCLoginViewController *loginVC = [[BLCLoginViewController alloc] init];
     NSLog(@"Home button pressed.");
-    self.title = @"Back";
     [self.navigationController pushViewController:loginVC animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
