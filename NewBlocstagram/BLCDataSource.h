@@ -19,6 +19,8 @@ typedef void (^BLCNewItemCompletionBlock)(NSError *error);
 @property (nonatomic, assign) BOOL isRefreshing;
 @property (nonatomic, assign) BOOL isLoadingOlderItems;
 @property (nonatomic, strong, readonly) NSString *accessToken;
+@property (nonatomic, assign) BOOL thereAreNoMoreOlderMessages;
+
 
 
 

@@ -50,7 +50,7 @@
         self.accessToken = note.object;
         
         // Got a token, populate the initial data
-        [self populateDataWithParameters:nil];
+        [self populateDataWithParameters:nil completionHandler:nil];
     }];
 }
 
@@ -89,26 +89,39 @@
 #pragma mark Implementation of asynchronous completion handler method
 
 -(void) requestNewItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler {
+    self.thereAreNoMoreOlderMessages = NO;
     if (self.isRefreshing == NO) {
         self.isRefreshing = YES;
-        self.isRefreshing = NO;
         
-        if (completionHandler ) {
-            completionHandler(nil);
-        }
+        NSString *minID = [[self.mediaItems firstObject] idNumber];
+        NSDictionary *parameters = @{@"min_id": minID};
+        
+        [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
+            self.isRefreshing = NO;
+            
+            if (completionHandler) {
+                completionHandler(error);
+            }
+        }];
     }
 }
 
 -(void) requestOldItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler {
-    if (self.isRefreshing == NO) {
-        self.isRefreshing = YES;
+    if (self.isLoadingOlderItems == NO && self.thereAreNoMoreOlderMessages == NO) {
+        self.isLoadingOlderItems = YES;
         
-        self.isRefreshing = NO;
-        
-        if (completionHandler ) {
-            completionHandler(nil);
+        NSString *maxID = [[self.mediaItems lastObject] idNumber];
+        NSDictionary *parameters = @{@"max_id": maxID};
+    
+    [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
+        self.isLoadingOlderItems = NO;
+    
+        if (completionHandler) {
+            completionHandler(error);
         }
+    }];
     }
+    
 }
 
 + (NSString *) instagramClientID {
@@ -117,7 +130,7 @@
 
 #pragma mark - Methods for Instagram Image Feed
 
--(void) populateDataWithParameters:(NSDictionary *)parameters {
+-(void) populateDataWithParameters:(NSDictionary *)parameters completionHandler:(BLCNewItemCompletionBlock)completionHandler {
     if (self.accessToken) {
         // Only try to get the data if there is an access token
         
@@ -141,21 +154,34 @@
                 NSError *webError;
                 NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&webError];
                 
-                NSError *jsonError;
-                NSDictionary *feedDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
+                if (responseData) {
+                    NSError *jsonError;
+                    NSDictionary *feedDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
                 
-                if (feedDictionary) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
+                    if (feedDictionary) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
                         // done networking, go back to the main thread
                         [self parseDataFromFeedDictionary:feedDictionary fromRequestWithParameters:parameters];
+                            if (completionHandler) {
+                                completionHandler(nil);
+                            }
+                    });
+                    } else if (completionHandler) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completionHandler(jsonError);
+                        });
+                    }
+                } else if (completionHandler) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completionHandler(webError);
                     });
                 }
-            }
+        }
         });
     }
 }
 
--(void) parseDataFromFeedDictionary:(NSDictionary *) feedDictionary fromRequestWithParameters:(NSDictionary *)paraemters {
+-(void) parseDataFromFeedDictionary:(NSDictionary *) feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {
     NSArray *mediaArray = feedDictionary[@"data"];
     
     NSMutableArray *tmpMediaItems = [NSMutableArray array];
@@ -169,10 +195,31 @@
         }
     }
     
-    [self willChangeValueForKey:@"mediaItems"];
-    self.mediaItems = tmpMediaItems;
-    [self didChangeValueForKey:@"mediaItems"];
+    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+    
+    if (parameters[@"min_id"]) {
+        // This was a pull-to-refresh request
+        
+        NSRange rangeOfIndexes = NSMakeRange(0, tmpMediaItems.count);
+        NSIndexSet *indexSetOfNewObjects = [NSIndexSet indexSetWithIndexesInRange:rangeOfIndexes];
+        
+        [mutableArrayWithKVO insertObjects:tmpMediaItems atIndexes:indexSetOfNewObjects];
+    } else if (parameters[@"max_id"]) {
+        // This was an infinite scroll request
+        
+        if (tmpMediaItems.count == 0) {
+            // Disable infinite scroll as there are no older messages
+            self.thereAreNoMoreOlderMessages = YES;
+        }
+        
+        [mutableArrayWithKVO addObjectsFromArray:tmpMediaItems];
+    } else {
+        [self willChangeValueForKey:@"mediaItems"];
+        self.mediaItems = tmpMediaItems;
+        [self didChangeValueForKey:@"mediaItems"];
+    }
 }
+
 
 -(void) downloadImagesForMediaItem:(BLCMedia *)mediaItem {
     if (mediaItem.mediaURL && !mediaItem.image) {
