@@ -85,4 +85,12 @@
     return items;
 }
 
+-(void)tableView:(UITableView *)tableView setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    [tableView setEditing:YES animated:YES];
+}
+
+
+
 @end
