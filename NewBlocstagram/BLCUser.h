@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface BLCUser : NSObject
+@interface BLCUser : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *idNumber;
 @property (nonatomic, strong) NSString *userName;

@@ -21,7 +21,7 @@ typedef void (^BLCNewItemCompletionBlock)(NSError *error);
 @property (nonatomic, strong, readonly) NSString *accessToken;
 @property (nonatomic, assign) BOOL thereAreNoMoreOlderMessages;
 
-
+-(NSString *) pathForFileName:(NSString *) fileName;
 
 
 - (void) deleteMediaItem:(BLCMedia *)item;
