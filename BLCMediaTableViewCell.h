@@ -8,17 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-@class BLCMedia;
+@class BLCMedia, BLCMediaTableViewCell;
 
-@interface BLCMediaTableViewCell : UITableViewCell
+@protocol BLCMediaTableViewCellDelegate <NSObject>
+
+-(void)cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView;
+
+@end
+
+
+@interface BLCMediaTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) BLCMedia *mediaItem;
+@property (nonatomic, weak) id <BLCMediaTableViewCellDelegate> delegate;
 @property (nonatomic, strong) UIImageView *mediaImageView;
 @property (nonatomic, strong) UILabel *usernameAndCaptionLabel;
 @property (nonatomic, strong) UILabel *commentLabel;
 @property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint; 
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
+
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
 +(CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width;
 

@@ -11,6 +11,7 @@
 #import "BLCUser.h"
 #import "BLCComment.h"
 
+
 static UIFont *lightFont;
 static UIFont *boldFont;
 static UIColor *usernameLabelGray;
@@ -18,9 +19,7 @@ static UIColor *commentLabelGray;
 static UIColor *linkColor;
 static NSParagraphStyle *paragraphStyle;
 
-
 @implementation BLCMediaTableViewCell
-
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -28,6 +27,11 @@ static NSParagraphStyle *paragraphStyle;
     if (self) {
         // Initialization code
         self.mediaImageView = [[UIImageView alloc] init];
+        self.mediaImageView.userInteractionEnabled = YES;
+        
+        self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
+        self.tapGestureRecognizer.delegate = self;
+        [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
         self.usernameAndCaptionLabel = [[UILabel alloc] init];
         self.commentLabel = [[UILabel alloc] init];
         self.commentLabel.numberOfLines = 0;
@@ -109,6 +113,12 @@ static NSParagraphStyle *paragraphStyle;
     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
     self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
     
+    if (_mediaItem.image) {
+        self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    } else {
+        self.imageHeightConstraint.constant = 0;
+    }
+    
     // Hide the line between cells
     self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
 }
@@ -159,12 +169,6 @@ static NSParagraphStyle *paragraphStyle;
     self.mediaImageView.image = _mediaItem.image;
     self.usernameAndCaptionLabel.attributedText = [self userNameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
-    
-    if (_mediaItem.image) {
-        self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width*CGRectGetWidth(self.contentView.bounds);
-    } else {
-        self.imageHeightConstraint.constant = 0;
-    }
 }
 
 -(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
@@ -187,6 +191,19 @@ static NSParagraphStyle *paragraphStyle;
     [layoutCell layoutIfNeeded];
     return CGRectGetMaxY(layoutCell.commentLabel.frame);
 }
+
+#pragma mark - Image View
+
+-(void)tapFired:(UITapGestureRecognizer *)sender {
+    [self.delegate cell:self didTapImageView:self.mediaImageView];
+}
+
+#pragma mark - UITapGestureRecognizerDelegate
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return self.isEditing == NO;
+}
+
 
 @end
 
