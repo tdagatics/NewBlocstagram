@@ -8,12 +8,14 @@
 
 #import "BLCMediaFullScreenViewController.h"
 #import "BLCMedia.h"
+#import "BLCMediaTableViewCell.h"
 
 @interface BLCMediaFullScreenViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) BLCMedia *media;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
+@property (nonatomic, strong) UIButton *shareButton;
 
 @end
 
@@ -54,6 +56,15 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+    /* share button
+    */
+    self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    self.shareButton.backgroundColor = [UIColor orangeColor];
+    [self.imageView addSubview:self.shareButton];
+    [self.shareButton addTarget:self action:@selector(longPressFired:)
+               forControlEvents:UIControlEventTouchUpInside];
+    
+    
 }
 
 

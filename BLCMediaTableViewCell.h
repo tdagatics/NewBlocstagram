@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BLCMediaFullScreenViewController.h"
 
 @class BLCMedia, BLCMediaTableViewCell;
 
 @protocol BLCMediaTableViewCellDelegate <NSObject>
 
 -(void)cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView;
+-(void)cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImage *)imageView;
 
 @end
 
@@ -29,7 +31,10 @@
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
 +(CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width;
+
+-(void) longPressFired:(UILongPressGestureRecognizer *)sender;
 
 @end

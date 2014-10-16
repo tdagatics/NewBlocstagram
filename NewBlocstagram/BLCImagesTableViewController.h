@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BLCImagesTableViewController : UITableViewController 
+@interface BLCImagesTableViewController : UITableViewController
+
+/*
+-(void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView;
+*/
 
 @end
