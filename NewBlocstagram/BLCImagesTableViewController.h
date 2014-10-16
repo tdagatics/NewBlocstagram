@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BLCImagesTableViewController : UITableViewController
+@interface BLCImagesTableViewController : UITableViewController 
 
 @end

@@ -12,7 +12,11 @@
 #import "BLCComment.h"
 #import "BLCDataSource.h"
 #import "BLCMediaTableViewCell.h"
+#import "BLCMediaFullScreenViewController.h"
 
+@interface BLCImagesTableViewController () <BLCMediaTableViewCellDelegate>
+
+@end
 
 @implementation BLCImagesTableViewController
 
@@ -48,6 +52,7 @@
  // Configure the cell...
  
      BLCMediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
+     cell.delegate = self;
      cell.mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
      return cell;
  }
@@ -167,6 +172,15 @@
 -(void) dealloc
 {
     [[BLCDataSource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
+}
+
+#pragma mark - BLCMediaTableViewCellDelegate
+
+-(void)cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
+    BLCMediaFullScreenViewController *fullScreenVC = [[BLCMediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
+    
+    [self presentViewController:fullScreenVC animated:YES completion:nil];
+    
 }
 
 @end
