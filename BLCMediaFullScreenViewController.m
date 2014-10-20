@@ -58,8 +58,9 @@
     [self.scrollView addGestureRecognizer:self.doubleTap];
     /* share button
     */
-    self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    self.shareButton.backgroundColor = [UIColor orangeColor];
+    self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 35, 65, 25)];
+    self.shareButton.backgroundColor = [UIColor clearColor];
+    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
     [self.imageView addSubview:self.shareButton];
     [self.shareButton addTarget:self action:@selector(longPressFired:)
                forControlEvents:UIControlEventTouchUpInside];

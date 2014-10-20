@@ -19,6 +19,7 @@ static UIColor *commentLabelGray;
 static UIColor *linkColor;
 static NSParagraphStyle *paragraphStyle;
 
+
 @implementation BLCMediaTableViewCell
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -206,8 +207,29 @@ static NSParagraphStyle *paragraphStyle;
 -(void) longPressFired:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         [self.delegate cell:self didLongPressImageView:self.mediaImageView];
+        
+        NSMutableArray *itemsToShare = [NSMutableArray array];
+        
+        if (self.mediaItem.caption.length > 0) {
+            [itemsToShare addObject:self.mediaItem.caption];
+        }
+        
+        if (self.mediaItem.image) {
+            [itemsToShare addObject:self.mediaItem.image];
+        }
+        
+        if (itemsToShare.count > 0) {
+            UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+        /* UIResponder error */
+            UIViewController *tempVC = [self.superview nextResponder];
+            [tempVC presentViewController:activityVC animated:YES completion:nil];
+        }
+        
     }
+
+        
 }
+
 
 
 #pragma mark - UITapGestureRecognizerDelegate

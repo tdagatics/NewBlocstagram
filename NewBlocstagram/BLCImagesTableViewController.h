@@ -10,8 +10,5 @@
 
 @interface BLCImagesTableViewController : UITableViewController
 
-/*
--(void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView;
-*/
 
 @end
