@@ -15,6 +15,7 @@
 @property (nonatomic, strong) BLCMedia *media;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
 @property (nonatomic, strong) UIButton *shareButton;
 
 @end
@@ -58,12 +59,18 @@
     [self.scrollView addGestureRecognizer:self.doubleTap];
     /* share button
     */
+    
     self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 35, 65, 25)];
     self.shareButton.backgroundColor = [UIColor clearColor];
     [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] init];
+    [longPress addTarget:self action:@selector(longPressFired:)];
+    longPress.delegate = (id<UIGestureRecognizerDelegate>)self;
+    [self.shareButton addGestureRecognizer:longPress];
+    
+    
     [self.imageView addSubview:self.shareButton];
-    [self.shareButton addTarget:self action:@selector(longPressFired:)
-               forControlEvents:UIControlEventTouchUpInside];
+    //[self.shareButton addTarget:self.view action:@selector(longPressFired:) forControlEvents:UIControlEventTouchUpInside];
     
     
 }
@@ -148,6 +155,7 @@
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     }
 }
+
 /*
 #pragma mark - Navigation
 
@@ -158,6 +166,9 @@
 }
 */
 
+-(void)longPressFired:(UILongPressGestureRecognizer *)sender {
+    NSLog(@"Long press fired");
+}
 
 
 @end

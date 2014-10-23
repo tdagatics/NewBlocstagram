@@ -20,6 +20,7 @@ static UIColor *linkColor;
 static NSParagraphStyle *paragraphStyle;
 
 
+
 @implementation BLCMediaTableViewCell
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -220,9 +221,11 @@ static NSParagraphStyle *paragraphStyle;
         
         if (itemsToShare.count > 0) {
             UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-        /* UIResponder error */
+            [self.window.rootViewController.navigationController presentViewController:activityVC animated:YES completion:nil];
+            /* UIResponder error
             UIViewController *tempVC = [self.superview nextResponder];
             [tempVC presentViewController:activityVC animated:YES completion:nil];
+         */
         }
         
     }
