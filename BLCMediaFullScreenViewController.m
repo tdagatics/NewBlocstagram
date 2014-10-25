@@ -57,7 +57,7 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
-    /* share button
+    /* share button - Issues with hanging thread
     */
     
     self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 35, 65, 25)];
