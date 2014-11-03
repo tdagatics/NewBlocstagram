@@ -36,6 +36,8 @@
 		4392005B19DA6253004B5E46 /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005A19DA6253004B5E46 /* BLCComment.m */; };
 		4392005E19DA635F004B5E46 /* BLCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005D19DA635F004B5E46 /* BLCDataSource.m */; };
 		43B598D319E83C52002D35CE /* BLCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B598D219E83C52002D35CE /* BLCLoginViewController.m */; };
+		43DC720819EF22860095EA72 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DC720719EF22860095EA72 /* BLCMediaFullScreenViewController.m */; };
+		43DC720B19EF67C50095EA72 /* BLCMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DC720A19EF67C50095EA72 /* BLCMediaFullScreenAnimator.m */; };
 		7680921E7D731F5AFEEEA412 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E77C6F73C489E92AC74366 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,10 @@
 		4392005D19DA635F004B5E46 /* BLCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCDataSource.m; sourceTree = "<group>"; };
 		43B598D119E83C52002D35CE /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
 		43B598D219E83C52002D35CE /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
+		43DC720619EF22860095EA72 /* BLCMediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenViewController.h; sourceTree = SOURCE_ROOT; };
+		43DC720719EF22860095EA72 /* BLCMediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenViewController.m; sourceTree = SOURCE_ROOT; };
+		43DC720919EF67C50095EA72 /* BLCMediaFullScreenAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCMediaFullScreenAnimator.h; path = ../BLCMediaFullScreenAnimator.h; sourceTree = "<group>"; };
+		43DC720A19EF67C50095EA72 /* BLCMediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCMediaFullScreenAnimator.m; path = ../BLCMediaFullScreenAnimator.m; sourceTree = "<group>"; };
 		96A0FE12C1D53A709E96081C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +170,10 @@
 		436E70DB19DA578F00D5C1C1 /* NewBlocstagram */ = {
 			isa = PBXGroup;
 			children = (
+				43DC720919EF67C50095EA72 /* BLCMediaFullScreenAnimator.h */,
+				43DC720A19EF67C50095EA72 /* BLCMediaFullScreenAnimator.m */,
+				43DC720619EF22860095EA72 /* BLCMediaFullScreenViewController.h */,
+				43DC720719EF22860095EA72 /* BLCMediaFullScreenViewController.m */,
 				436E70E419DA578F00D5C1C1 /* BLCAppDelegate.h */,
 				436E70E519DA578F00D5C1C1 /* BLCAppDelegate.m */,
 				43474AEF19DCAE0F006E546D /* BLCMediaTableViewCell.h */,
@@ -378,11 +388,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4392005519DA60D8004B5E46 /* BLCUser.m in Sources */,
+				43DC720B19EF67C50095EA72 /* BLCMediaFullScreenAnimator.m in Sources */,
 				436E70E619DA578F00D5C1C1 /* BLCAppDelegate.m in Sources */,
 				436E70E219DA578F00D5C1C1 /* main.m in Sources */,
 				436E711B19DA587900D5C1C1 /* BLCImagesTableViewController.m in Sources */,
 				4392005819DA6137004B5E46 /* BLCMedia.m in Sources */,
 				4392005B19DA6253004B5E46 /* BLCComment.m in Sources */,
+				43DC720819EF22860095EA72 /* BLCMediaFullScreenViewController.m in Sources */,
 				43474AF119DCAE0F006E546D /* BLCMediaTableViewCell.m in Sources */,
 				4392005E19DA635F004B5E46 /* BLCDataSource.m in Sources */,
 				43B598D319E83C52002D35CE /* BLCLoginViewController.m in Sources */,
@@ -504,10 +516,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NewBlocstagram/NewBlocstagram-Prefix.pch";
 				INFOPLIST_FILE = "NewBlocstagram/NewBlocstagram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -520,10 +535,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NewBlocstagram/NewBlocstagram-Prefix.pch";
 				INFOPLIST_FILE = "NewBlocstagram/NewBlocstagram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

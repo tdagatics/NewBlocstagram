@@ -11,6 +11,7 @@
 #import "BLCUser.h"
 #import "BLCComment.h"
 
+
 static UIFont *lightFont;
 static UIFont *boldFont;
 static UIColor *usernameLabelGray;
@@ -19,8 +20,8 @@ static UIColor *linkColor;
 static NSParagraphStyle *paragraphStyle;
 
 
-@implementation BLCMediaTableViewCell
 
+@implementation BLCMediaTableViewCell
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -28,6 +29,16 @@ static NSParagraphStyle *paragraphStyle;
     if (self) {
         // Initialization code
         self.mediaImageView = [[UIImageView alloc] init];
+        self.mediaImageView.userInteractionEnabled = YES;
+        
+        self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
+        self.tapGestureRecognizer.delegate = self;
+        [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
+        
+        self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFired:)];
+        self.longPressGestureRecognizer.delegate = self;
+        [self.mediaImageView addGestureRecognizer:self.longPressGestureRecognizer];
+        
         self.usernameAndCaptionLabel = [[UILabel alloc] init];
         self.commentLabel = [[UILabel alloc] init];
         self.commentLabel.numberOfLines = 0;
@@ -109,6 +120,12 @@ static NSParagraphStyle *paragraphStyle;
     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
     self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
     
+    if (_mediaItem.image) {
+        self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    } else {
+        self.imageHeightConstraint.constant = 0;
+    }
+    
     // Hide the line between cells
     self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
 }
@@ -159,12 +176,6 @@ static NSParagraphStyle *paragraphStyle;
     self.mediaImageView.image = _mediaItem.image;
     self.usernameAndCaptionLabel.attributedText = [self userNameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
-    
-    if (_mediaItem.image) {
-        self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width*CGRectGetWidth(self.contentView.bounds);
-    } else {
-        self.imageHeightConstraint.constant = 0;
-    }
 }
 
 -(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
@@ -187,6 +198,50 @@ static NSParagraphStyle *paragraphStyle;
     [layoutCell layoutIfNeeded];
     return CGRectGetMaxY(layoutCell.commentLabel.frame);
 }
+
+#pragma mark - Image View
+
+-(void)tapFired:(UITapGestureRecognizer *)sender {
+    [self.delegate cell:self didTapImageView:self.mediaImageView];
+}
+
+-(void) longPressFired:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        [self.delegate cell:self didLongPressImageView:self.mediaImageView];
+        
+        NSMutableArray *itemsToShare = [NSMutableArray array];
+        
+        if (self.mediaItem.caption.length > 0) {
+            [itemsToShare addObject:self.mediaItem.caption];
+        }
+        
+        if (self.mediaItem.image) {
+            [itemsToShare addObject:self.mediaItem.image];
+        }
+        
+        if (itemsToShare.count > 0) {
+            UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+            [self.window.rootViewController.navigationController presentViewController:activityVC animated:YES completion:nil];
+            /* UIResponder error
+            UIViewController *tempVC = [self.superview nextResponder];
+            [tempVC presentViewController:activityVC animated:YES completion:nil];
+         */
+        }
+        
+    }
+
+        
+}
+
+
+
+#pragma mark - UITapGestureRecognizerDelegate
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return self.isEditing == NO;
+}
+
+
 
 @end
 

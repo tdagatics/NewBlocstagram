@@ -7,12 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BLCMediaFullScreenViewController.h"
 
-@class BLCMedia;
+@class BLCMedia, BLCMediaTableViewCell;
 
-@interface BLCMediaTableViewCell : UITableViewCell
+@protocol BLCMediaTableViewCellDelegate <NSObject>
+
+-(void)cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView;
+-(void)cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView;
+
+@end
+
+
+@interface BLCMediaTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) BLCMedia *mediaItem;
+@property (nonatomic, weak) id <BLCMediaTableViewCellDelegate> delegate;
 @property (nonatomic, strong) UIImageView *mediaImageView;
 @property (nonatomic, strong) UILabel *usernameAndCaptionLabel;
 @property (nonatomic, strong) UILabel *commentLabel;
@@ -20,6 +30,11 @@
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
 
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+
 +(CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width;
+
+-(void) longPressFired:(UILongPressGestureRecognizer *)sender;
 
 @end
