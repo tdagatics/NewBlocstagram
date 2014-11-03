@@ -15,7 +15,7 @@
 @property (nonatomic, strong) BLCMedia *media;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
-@property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 @property (nonatomic, strong) UIButton *shareButton;
 
 @end
@@ -63,14 +63,9 @@
     self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 35, 65, 25)];
     self.shareButton.backgroundColor = [UIColor clearColor];
     [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] init];
-    [longPress addTarget:self action:@selector(longPressFired:)];
-    longPress.delegate = (id<UIGestureRecognizerDelegate>)self;
-    [self.shareButton addGestureRecognizer:longPress];
-    
+    [self.shareButton addTarget:self action:@selector(longPressFired:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.imageView addSubview:self.shareButton];
-    //[self.shareButton addTarget:self.view action:@selector(longPressFired:) forControlEvents:UIControlEventTouchUpInside];
     
     
 }
@@ -167,8 +162,24 @@
 */
 
 -(void)longPressFired:(UILongPressGestureRecognizer *)sender {
-    NSLog(@"Long press fired");
+    NSLog(@"Test print to console");
 }
 
+- (void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    
+    if (cell.mediaItem.caption.length > 0) {
+        [itemsToShare addObject:cell.mediaItem.caption];
+    }
+    
+    if (cell.mediaItem.image) {
+        [itemsToShare addObject:cell.mediaItem.image];
+    }
+    
+    if (itemsToShare.count > 0) {
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
+}
 
 @end
