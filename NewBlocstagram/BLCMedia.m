@@ -12,6 +12,7 @@
 
 @implementation BLCMedia
 
+
 -(instancetype) initWithDictionary:(NSDictionary *)mediaDictionary {
     self = [super init];
     
@@ -56,7 +57,10 @@
         self.idNumber = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(idNumber))];
         self.user = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(user))];
         self.mediaURL = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(mediaURL))];
-        self.image = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(image))];
+        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:initWithCoder:)];
+        [doubleTap setNumberOfTapsRequired: 2];
+        
+        //self.image = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(image))];
         self.caption = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(caption))];
         self.comments = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(comments))];
     }
@@ -70,6 +74,11 @@
     [aCoder encodeObject:self.image forKey:NSStringFromSelector(@selector(image))];
     [aCoder encodeObject:self.caption forKey:NSStringFromSelector(@selector(caption))];
     [aCoder encodeObject:self.comments forKey:NSStringFromSelector(@selector(comments))];
+}
+
+// New code for handling Double Tap decoding
+-(UIImage *)handleDoubleTap:(UIImage *)image initWithCoder:(NSCoder *)aDecoder {
+    return [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(image))];
 }
 
 @end
