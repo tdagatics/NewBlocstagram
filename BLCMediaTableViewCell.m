@@ -123,7 +123,7 @@ static NSParagraphStyle *paragraphStyle;
     if (_mediaItem.image) {
         self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
     } else {
-        self.imageHeightConstraint.constant = 0;
+        self.imageHeightConstraint.constant = 20;
     }
     
     // Hide the line between cells

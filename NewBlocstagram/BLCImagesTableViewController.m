@@ -225,4 +225,12 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BLCMedia *mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+        [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+    }
+}
+
 @end
