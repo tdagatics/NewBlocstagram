@@ -15,6 +15,7 @@
 
 -(void)cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView;
 -(void)cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView;
+-(void)cellDidPressLikeButton:(BLCMediaTableViewCell *)cell;
 
 @end
 
@@ -32,6 +33,7 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+@property (nonatomic, strong) BLCLikeButton *likeButton;
 
 +(CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width;
 
