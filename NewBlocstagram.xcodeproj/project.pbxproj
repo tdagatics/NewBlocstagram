@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4304AAEE1A088AF10080FADD /* BLCCircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4304AAED1A088AF10080FADD /* BLCCircleSpinnerView.m */; };
 		43474AF119DCAE0F006E546D /* BLCMediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43474AF019DCAE0F006E546D /* BLCMediaTableViewCell.m */; };
 		436E70D619DA578F00D5C1C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436E70D519DA578F00D5C1C1 /* Foundation.framework */; };
 		436E70D819DA578F00D5C1C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436E70D719DA578F00D5C1C1 /* CoreGraphics.framework */; };
@@ -31,6 +32,7 @@
 		436E711719DA583600D5C1C1 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710D19DA583600D5C1C1 /* 9.jpg */; };
 		436E711819DA583600D5C1C1 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 436E710E19DA583600D5C1C1 /* 10.jpg */; };
 		436E711B19DA587900D5C1C1 /* BLCImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E711A19DA587900D5C1C1 /* BLCImagesTableViewController.m */; };
+		438EF99C1A094C9D006D6148 /* BLCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 438EF99B1A094C9D006D6148 /* BLCLikeButton.m */; };
 		4392005519DA60D8004B5E46 /* BLCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005419DA60D8004B5E46 /* BLCUser.m */; };
 		4392005819DA6137004B5E46 /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005719DA6137004B5E46 /* BLCMedia.m */; };
 		4392005B19DA6253004B5E46 /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4392005A19DA6253004B5E46 /* BLCComment.m */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		04E77C6F73C489E92AC74366 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BD3815AE80EDA022698F9ED /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4304AAEC1A088AF10080FADD /* BLCCircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCircleSpinnerView.h; sourceTree = "<group>"; };
+		4304AAED1A088AF10080FADD /* BLCCircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCircleSpinnerView.m; sourceTree = "<group>"; };
 		43474AEF19DCAE0F006E546D /* BLCMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCMediaTableViewCell.h; path = ../BLCMediaTableViewCell.h; sourceTree = "<group>"; };
 		43474AF019DCAE0F006E546D /* BLCMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCMediaTableViewCell.m; path = ../BLCMediaTableViewCell.m; sourceTree = "<group>"; };
 		436E70D219DA578F00D5C1C1 /* NewBlocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewBlocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +88,8 @@
 		436E710E19DA583600D5C1C1 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
 		436E711919DA587900D5C1C1 /* BLCImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCImagesTableViewController.h; sourceTree = "<group>"; };
 		436E711A19DA587900D5C1C1 /* BLCImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCImagesTableViewController.m; sourceTree = "<group>"; };
+		438EF99A1A094C9D006D6148 /* BLCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLikeButton.h; sourceTree = "<group>"; };
+		438EF99B1A094C9D006D6148 /* BLCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLikeButton.m; sourceTree = "<group>"; };
 		4392005319DA60D8004B5E46 /* BLCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCUser.h; sourceTree = "<group>"; };
 		4392005419DA60D8004B5E46 /* BLCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCUser.m; sourceTree = "<group>"; };
 		4392005619DA6137004B5E46 /* BLCMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMedia.h; sourceTree = "<group>"; };
@@ -192,6 +198,10 @@
 				4392005419DA60D8004B5E46 /* BLCUser.m */,
 				436E710419DA57EF00D5C1C1 /* Images */,
 				436E70E719DA578F00D5C1C1 /* Images.xcassets */,
+				4304AAEC1A088AF10080FADD /* BLCCircleSpinnerView.h */,
+				4304AAED1A088AF10080FADD /* BLCCircleSpinnerView.m */,
+				438EF99A1A094C9D006D6148 /* BLCLikeButton.h */,
+				438EF99B1A094C9D006D6148 /* BLCLikeButton.m */,
 				436E70DC19DA578F00D5C1C1 /* Supporting Files */,
 			);
 			path = NewBlocstagram;
@@ -389,10 +399,12 @@
 			files = (
 				4392005519DA60D8004B5E46 /* BLCUser.m in Sources */,
 				43DC720B19EF67C50095EA72 /* BLCMediaFullScreenAnimator.m in Sources */,
+				438EF99C1A094C9D006D6148 /* BLCLikeButton.m in Sources */,
 				436E70E619DA578F00D5C1C1 /* BLCAppDelegate.m in Sources */,
 				436E70E219DA578F00D5C1C1 /* main.m in Sources */,
 				436E711B19DA587900D5C1C1 /* BLCImagesTableViewController.m in Sources */,
 				4392005819DA6137004B5E46 /* BLCMedia.m in Sources */,
+				4304AAEE1A088AF10080FADD /* BLCCircleSpinnerView.m in Sources */,
 				4392005B19DA6253004B5E46 /* BLCComment.m in Sources */,
 				43DC720819EF22860095EA72 /* BLCMediaFullScreenViewController.m in Sources */,
 				43474AF119DCAE0F006E546D /* BLCMediaTableViewCell.m in Sources */,
